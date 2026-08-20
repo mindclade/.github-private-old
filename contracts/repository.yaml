@@ -1,0 +1,39 @@
+---
+# MINDCLADE CONFIDENTIAL - PROPRIETARY AND TRADE SECRET
+# Copyright (c) 2026 Mindclade. All rights reserved.
+schema_version: 1
+repository: .github-private
+repository_class: enterprise-control
+visibility: private
+authority:
+  - member-only-organization-profile
+  - internal-navigation
+forbidden_authority:
+  - shared-workflow-implementation
+  - community-health-defaults
+  - github-enterprise-desired-state
+  - cloud-resources
+  - kubernetes-desired-state
+  - application-source
+required_paths:
+  - profile/README.md
+  - mindclade-brand-assets/README.txt
+  - mindclade-brand-assets/png/mc-lockup-horizontal-1080w.png
+  - mindclade-brand-assets/png/mc-lockup-horizontal-dark-1080w.png
+  - .github/CODEOWNERS
+  - .github/workflows/validate.yml
+  - CONTRIBUTING.md
+  - SECURITY.md
+  - SUPPORT.md
+forbidden_paths:
+  - .terraform
+  - .terragrunt-cache
+  - credentials
+default_branch: main
+change_model: pull-request
+production_controls:
+  required_reviews: true
+  codeowners: true
+  merge_queue: false
+  immutable_actions: true
+  oidc_only_cloud_authentication: true

@@ -1,0 +1,7 @@
+# The member profile is an organization-wide internal communication surface.
+
+*                           @Mindclade/platform @Mindclade/security
+/profile/                   @Mindclade/platform @Mindclade/security
+/.github/workflows/         @Mindclade/platform @Mindclade/security
+/contracts/                 @Mindclade/platform @Mindclade/security
+/scripts/                   @Mindclade/platform @Mindclade/security

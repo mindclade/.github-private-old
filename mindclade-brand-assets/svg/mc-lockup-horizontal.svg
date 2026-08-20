@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 160" width="760" height="160">
+  <defs></defs>
+  <rect width="160" height="160" rx="37" fill="#201C24"></rect>
+  <text x="83" y="104" text-anchor="middle" font-family="Instrument Sans, Helvetica, sans-serif" font-size="68" font-weight="700" letter-spacing="-5" fill="#F2EFE8">M<tspan fill="#D68A61">C</tspan></text>
+  <text x="196" y="88" font-family="Instrument Sans, Helvetica, sans-serif" font-size="88" font-weight="600" letter-spacing="-4.4" fill="#201C24">Mindclade</text>
+  <text x="198" y="128" font-family="JetBrains Mono, monospace" font-size="16" font-weight="500" letter-spacing="2.96" fill="#423D48">FRONTIER MODELS FOR PROGRAMMABLE BIOLOGY</text>
+</svg>

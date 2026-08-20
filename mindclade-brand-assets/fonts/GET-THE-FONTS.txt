@@ -1,0 +1,50 @@
+MINDCLADE — FONTS
+
+The identity uses two typefaces. Both are free and open
+source under the SIL Open Font License 1.1, which means you
+can install them, ship them on your website, and redistribute
+them inside the company at no cost.
+
+------------------------------------------------------------
+1. INSTRUMENT SANS — monogram, wordmark, all interface text
+
+   https://fonts.google.com/specimen/Instrument+Sans
+
+   Weights you need: 400, 500, 600, 700
+   Monogram: 700 at -7.5% letter-spacing
+   Wordmark: 600 at -5% letter-spacing
+
+2. JETBRAINS MONO — code, labels, the mc. sub-mark
+
+   https://fonts.google.com/specimen/JetBrains+Mono
+
+   Weights you need: 400, 500
+
+------------------------------------------------------------
+TO INSTALL ON YOUR MACHINES
+
+On each Google Fonts page above, click "Get font", then
+"Download all". Unzip, select the .ttf files, and install
+(double-click on macOS, right-click > Install on Windows).
+Do this on every laptop that touches a deck or a document.
+
+------------------------------------------------------------
+FOR THE WEBSITE
+
+Use the snippet in /web/head-snippet.html — it loads both
+families from Google's CDN with the right weights and sets
+the favicons at the same time.
+
+If you'd rather self-host (faster, no third-party request),
+download the .woff2 files from the same pages and serve them
+from your own domain. Include the OFL.txt license file that
+ships in each download — that is the only condition.
+
+------------------------------------------------------------
+WHY THESE TWO
+
+Instrument Sans has the tight, slightly condensed grotesque
+proportions that let MC sit as a solid block rather than two
+separate letters, and it holds its shape at 16 px. JetBrains
+Mono is a coding face by origin, so mc. looks native in a
+terminal instead of like a logo pretending to be code.

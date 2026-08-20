@@ -1,0 +1,41 @@
+/* Mindclade — brand tokens */
+
+:root {
+  --mc-ink:        #201C24;  /* everything structural */
+  --mc-clay:       #B5673F;  /* the C, on light surfaces */
+  --mc-clay-light: #D68A61;  /* the C, on ink surfaces */
+  --mc-bone:       #FBFAF7;  /* paper */
+  --mc-bone-warm:  #F2EFE8;  /* reversed type and tiles */
+  --mc-ink-deep:   #0F0D12;  /* code blocks, terminal */
+  --mc-muted:      #5B5660;  /* labels, captions */
+  --mc-body:       #423D48;  /* body copy */
+  --mc-rule:       #E2DED4;  /* hairlines, card borders */
+
+  --mc-sans: 'Instrument Sans', Helvetica, Arial, sans-serif;
+  --mc-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* monogram */
+.mc-monogram {
+  font-family: var(--mc-sans);
+  font-weight: 700;
+  letter-spacing: -0.075em;
+}
+
+/* wordmark */
+.mc-wordmark {
+  font-family: var(--mc-sans);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+}
+
+/* the tile: radius is always 23% of the box */
+.mc-tile {
+  aspect-ratio: 1;
+  border-radius: 23%;
+  background: var(--mc-ink);
+  color: var(--mc-bone-warm);
+  display: grid;
+  place-items: center;
+}
+.mc-tile .c { color: var(--mc-clay-light); }
