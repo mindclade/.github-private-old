@@ -1,5 +1,15 @@
 <!-- mindclade-doc: repository-home@1 -->
 
+<!-- Brand source: mindclade/.github-private/mindclade-brand-assets (MONO family). -->
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="mindclade-brand-assets/png/mono-wordmark-dark-1080w.png">
+    <source media="(prefers-color-scheme: light)" srcset="mindclade-brand-assets/png/mono-wordmark-1080w.png">
+    <img alt="Mindclade." src="mindclade-brand-assets/png/mono-wordmark-1080w.png" width="360">
+  </picture>
+</p>
+
 # Mindclade · Member Organization Profile
 
 > **Member experience · Internal navigation and operating guidance**  

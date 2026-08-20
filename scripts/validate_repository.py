@@ -42,7 +42,13 @@ REQUIRED_FILES = {
     "mindclade-brand-assets/web/tokens.css",
     "profile/README.md",
 }
-FORBIDDEN_PARTS = {".terraform", ".terragrunt-cache", "__MACOSX", "__pycache__", "credentials"}
+FORBIDDEN_PARTS = {
+    ".terraform",
+    ".terragrunt-cache",
+    "__MACOSX",
+    "__pycache__",
+    "credentials",
+}
 USES_RE = re.compile(r"^\s*(?:-\s*)?uses:\s*([^\s#]+)", re.MULTILINE)
 SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 SEMVER_RE = re.compile(r"^v[0-9]+\.[0-9]+\.[0-9]+$")
@@ -132,7 +138,9 @@ def main() -> int:
             continue
         text = candidate.read_text(encoding="utf-8", errors="ignore")
         if any(legacy in text for legacy in LEGACY_GITHUB_IDENTITIES):
-            errors.append(f"noncanonical GitHub organization identity: {rel.as_posix()}")
+            errors.append(
+                f"noncanonical GitHub organization identity: {rel.as_posix()}"
+            )
         for pattern in SECRET_PATTERNS:
             if pattern.search(text):
                 errors.append(f"possible credential in {rel.as_posix()}")
@@ -150,7 +158,9 @@ def main() -> int:
             "https://github.com/mindclade/.github-private",
         ):
             if canonical_url not in contract:
-                errors.append(f"repository contract omits canonical GitHub URL: {canonical_url}")
+                errors.append(
+                    f"repository contract omits canonical GitHub URL: {canonical_url}"
+                )
 
     profile_path = ROOT / "profile/README.md"
     if profile_path.is_file():
@@ -160,7 +170,9 @@ def main() -> int:
         if len(profile.encode("utf-8")) > 1_000_000:
             errors.append("profile/README.md exceeds the 1 MB profile budget")
         if "https://github.com/mindclade/" not in profile:
-            errors.append("profile/README.md must link to the Mindclade repository estate")
+            errors.append(
+                "profile/README.md must link to the Mindclade repository estate"
+            )
 
     brand_root = ROOT / "mindclade-brand-assets"
     font_root = brand_root / "fonts"
@@ -178,23 +190,37 @@ def main() -> int:
             if not isinstance(entries, dict) or not entries:
                 errors.append(f"font source manifest has no {section}")
                 continue
-            expected_names = EXPECTED_FONT_FILES if section == "fonts" else EXPECTED_LICENSE_FILES
+            expected_names = (
+                EXPECTED_FONT_FILES if section == "fonts" else EXPECTED_LICENSE_FILES
+            )
             if set(entries) != expected_names:
-                errors.append(f"font source manifest has an unexpected {section} inventory")
+                errors.append(
+                    f"font source manifest has an unexpected {section} inventory"
+                )
             for name, metadata in entries.items():
                 target = font_root / name
                 if not target.is_file():
-                    errors.append(f"font source manifest references missing file: {name}")
+                    errors.append(
+                        f"font source manifest references missing file: {name}"
+                    )
                     continue
                 expected_hash = metadata.get("sha256", "")
                 if not SHA256_RE.fullmatch(expected_hash):
-                    errors.append(f"font source manifest has invalid SHA-256 for {name}")
+                    errors.append(
+                        f"font source manifest has invalid SHA-256 for {name}"
+                    )
                 elif sha256(target) != expected_hash:
-                    errors.append(f"font or license hash differs from SOURCES.json: {name}")
+                    errors.append(
+                        f"font or license hash differs from SOURCES.json: {name}"
+                    )
                 if not COMMIT_RE.fullmatch(metadata.get("commit", "")):
-                    errors.append(f"font source manifest has an unpinned commit for {name}")
+                    errors.append(
+                        f"font source manifest has an unpinned commit for {name}"
+                    )
                 if section == "fonts":
-                    expected_magic = b"wOF2" if target.suffix == ".woff2" else b"\x00\x01\x00\x00"
+                    expected_magic = (
+                        b"wOF2" if target.suffix == ".woff2" else b"\x00\x01\x00\x00"
+                    )
                     if target.read_bytes()[:4] != expected_magic:
                         errors.append(f"font has invalid binary signature: {name}")
                     license_name = metadata.get("license", "")
@@ -207,7 +233,9 @@ def main() -> int:
         if "fonts.googleapis.com" in head or "fonts.gstatic.com" in head:
             errors.append("head snippet must not load fonts from a third-party CDN")
         if re.search(r'<link\b[^>]*\bhref="https?://', head):
-            errors.append("head snippet styles, fonts, manifest, and icons must be local")
+            errors.append(
+                "head snippet styles, fonts, manifest, and icons must be local"
+            )
         if head.count('rel="preload"') != 1:
             errors.append("head snippet must preload only Instrument Sans")
         if 'type="font/woff2"' not in head:
@@ -219,7 +247,9 @@ def main() -> int:
             errors.append(f"head snippet lacks required local asset: {missing}")
         for reference in sorted(local_assets):
             if not (ROOT / reference.lstrip("/")).is_file():
-                errors.append(f"head snippet references missing local asset: {reference}")
+                errors.append(
+                    f"head snippet references missing local asset: {reference}"
+                )
 
     fonts_css_path = brand_root / "web/fonts.css"
     if fonts_css_path.is_file():
@@ -234,10 +264,14 @@ def main() -> int:
             try:
                 target.relative_to(brand_root)
             except ValueError:
-                errors.append(f"font stylesheet URL escapes brand assets: {destination}")
+                errors.append(
+                    f"font stylesheet URL escapes brand assets: {destination}"
+                )
                 continue
             if not target.is_file():
-                errors.append(f"font stylesheet references missing asset: {destination}")
+                errors.append(
+                    f"font stylesheet references missing asset: {destination}"
+                )
 
     manifest_path = brand_root / "web/site.webmanifest"
     if manifest_path.is_file():
@@ -263,24 +297,36 @@ def main() -> int:
         markdown = markdown_path.read_text(encoding="utf-8")
         for match in LINK_RE.finditer(markdown):
             destination = match.group(1).strip().split("#", 1)[0]
-            if not destination or "://" in destination or destination.startswith("mailto:"):
+            if (
+                not destination
+                or "://" in destination
+                or destination.startswith("mailto:")
+            ):
                 continue
             target = (markdown_path.parent / destination).resolve()
             try:
                 target.relative_to(ROOT)
             except ValueError:
-                errors.append(f"Markdown link escapes repository in {relative(markdown_path)}: {destination}")
+                errors.append(
+                    f"Markdown link escapes repository in {relative(markdown_path)}: {destination}"
+                )
                 continue
             if not target.exists():
-                errors.append(f"broken local Markdown link in {relative(markdown_path)}: {destination}")
+                errors.append(
+                    f"broken local Markdown link in {relative(markdown_path)}: {destination}"
+                )
 
     workflow_dir = ROOT / ".github/workflows"
     for workflow_path in sorted(workflow_dir.glob("*.y*ml")):
         workflow = workflow_path.read_text(encoding="utf-8")
         if "permissions:" not in workflow:
-            errors.append(f"workflow lacks explicit permissions: {relative(workflow_path)}")
+            errors.append(
+                f"workflow lacks explicit permissions: {relative(workflow_path)}"
+            )
         if "pull_request_target:" in workflow:
-            errors.append(f"pull_request_target is forbidden: {relative(workflow_path)}")
+            errors.append(
+                f"pull_request_target is forbidden: {relative(workflow_path)}"
+            )
         for use in USES_RE.findall(workflow):
             if use.startswith("./"):
                 continue
@@ -289,9 +335,13 @@ def main() -> int:
                 errors.append(f"unversioned action in {relative(workflow_path)}: {use}")
             elif target.startswith("mindclade/.github/.github/workflows/"):
                 if not SEMVER_RE.fullmatch(version):
-                    errors.append(f"internal workflow lacks full semver in {relative(workflow_path)}: {use}")
+                    errors.append(
+                        f"internal workflow lacks full semver in {relative(workflow_path)}: {use}"
+                    )
             elif not SHA_RE.fullmatch(version):
-                errors.append(f"external action is not SHA-pinned in {relative(workflow_path)}: {use}")
+                errors.append(
+                    f"external action is not SHA-pinned in {relative(workflow_path)}: {use}"
+                )
 
     if errors:
         for message in sorted(set(errors)):
