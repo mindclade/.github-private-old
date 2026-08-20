@@ -15,7 +15,8 @@
   <source media="(prefers-color-scheme: light)" srcset="mindclade-brand-assets/png/mc-lockup-horizontal-1080w.png">
   <img src="mindclade-brand-assets/png/mc-banner-ink-1080w.png" alt="Mindclade" width="420">
 </picture>
-
+</div>
+<div align="center">
 <p>
   <a href="contracts/repository.yaml"><img alt="class: enterprise-control" src="https://img.shields.io/badge/class-enterprise--control-B5673F?style=flat-square&labelColor=201C24"></a>
   <img alt="ring: 0" src="https://img.shields.io/badge/ring-0-B5673F?style=flat-square&labelColor=201C24">
