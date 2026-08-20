@@ -9,11 +9,11 @@
              ignores <picture> (mobile app, GraphQL API, npm, IDE previews).
 -->
 
-<div align="left">
+<div align="center">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="mindclade-brand-assets/png/mc-lockup-horizontal-dark-1080w.png">
   <source media="(prefers-color-scheme: light)" srcset="mindclade-brand-assets/png/mc-lockup-horizontal-1080w.png">
-  <img src="mindclade-brand-assets/png/mc-banner-ink-1080w.png" alt="Mindclade" width="420">
+  <img src="mindclade-brand-assets/png/mc-banner-ink-1080w.png" alt="Mindclade" width="640">
 </picture>
 </div>
 <div align="center">
