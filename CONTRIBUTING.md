@@ -7,7 +7,7 @@ Keep changes concise, operationally useful, and safe for every organization memb
 
 1. Create a branch from `main`.
 2. Update `profile/README.md` and any repository documentation needed to explain the change.
-3. Run `make validate`; run `make lint` when actionlint and yamllint are installed.
+3. Run `nix flake check --no-update-lock-file` using the committed toolchain lock.
 4. Open a pull request using the repository template.
 5. Obtain the required approvals, including code-owner review, before merge.
 

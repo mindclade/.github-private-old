@@ -21,8 +21,11 @@ forbidden_authority:
   - kubernetes-desired-state
   - application-source
 required_paths:
+  - AGENTS.md
   - profile/README.md
   - mindclade-brand-assets/README.txt
+  - mindclade-brand-assets/png/mono-wordmark-1080w.png
+  - mindclade-brand-assets/png/mono-wordmark-dark-1080w.png
   - mindclade-brand-assets/png/mc-lockup-horizontal-1080w.png
   - mindclade-brand-assets/png/mc-lockup-horizontal-dark-1080w.png
   - mindclade-brand-assets/fonts/InstrumentSans-Variable.ttf
