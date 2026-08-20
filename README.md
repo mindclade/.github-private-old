@@ -9,7 +9,7 @@
              ignores <picture> (mobile app, GraphQL API, npm, IDE previews).
 -->
 
-<div align="center">
+<div align="left">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="mindclade-brand-assets/png/mc-lockup-horizontal-dark-1080w.png">
   <source media="(prefers-color-scheme: light)" srcset="mindclade-brand-assets/png/mc-lockup-horizontal-1080w.png">
