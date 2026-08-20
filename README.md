@@ -12,9 +12,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="mindclade-brand-assets/png/mc-lockup-horizontal-dark-1520w.png">
-  <source media="(prefers-color-scheme: light)" srcset="mindclade-brand-assets/png/mc-lockup-horizontal-1520w.png">
-  <img src="mindclade-brand-assets/png/mc-banner-ink-1840w.png" alt="Mindclade" width="420">
+  <source media="(prefers-color-scheme: dark)" srcset="mindclade-brand-assets/png/mc-lockup-horizontal-dark-1080w.png">
+  <source media="(prefers-color-scheme: light)" srcset="mindclade-brand-assets/png/mc-lockup-horizontal-1080w.png">
+  <img src="mindclade-brand-assets/png/mc-banner-ink-1840w.png" alt="Mindclade" width="450">
 </picture>
 
 <p>
