@@ -1,4 +1,4 @@
-<!-- mindclade-doc: repository-home@2 -->
+<!-- mindclade-doc: repository-home@1 -->
 <!--
   Standard:  mindclade/.github -> standards/readme/enterprise-control.md
   Brand:     mindclade/.github-private/mindclade-brand-assets (MC family).
@@ -10,7 +10,6 @@
 -->
 
 <div align="center">
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="mindclade-brand-assets/png/mc-lockup-horizontal-dark-1080w.png">
   <source media="(prefers-color-scheme: light)" srcset="mindclade-brand-assets/png/mc-lockup-horizontal-1080w.png">
