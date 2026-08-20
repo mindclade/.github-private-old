@@ -86,3 +86,9 @@ are intentionally not performed by this repository's validation tooling.
 The flattened PNG lockups in `mindclade-brand-assets/` are used for the rendered profile so
 GitHub does not depend on local fonts to reproduce the brand correctly. The asset bundle is
 proprietary and remains subject to `LICENSE`.
+
+The web handoff under `mindclade-brand-assets/web/` is fully self-hosted. Its head snippet
+loads local font faces, tokens, icons, manifest, and social image from the
+`/mindclade-brand-assets/` deployment path; it makes no Google Fonts request. Upstream font
+commits, file hashes, and OFL license mappings are recorded in
+`mindclade-brand-assets/fonts/SOURCES.json`.

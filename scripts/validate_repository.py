@@ -7,6 +7,8 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 from pathlib import Path
 import re
 import sys
@@ -23,8 +25,18 @@ REQUIRED_FILES = {
     "SUPPORT.md",
     "contracts/repository.yaml",
     "mindclade-brand-assets/README.txt",
+    "mindclade-brand-assets/fonts/InstrumentSans-Variable.ttf",
+    "mindclade-brand-assets/fonts/InstrumentSans-OFL.txt",
+    "mindclade-brand-assets/fonts/JetBrainsMono-Medium.ttf",
+    "mindclade-brand-assets/fonts/JetBrainsMono-OFL.txt",
+    "mindclade-brand-assets/fonts/JetBrainsMono-Regular.ttf",
+    "mindclade-brand-assets/fonts/SOURCES.json",
     "mindclade-brand-assets/png/mc-lockup-horizontal-1080w.png",
     "mindclade-brand-assets/png/mc-lockup-horizontal-dark-1080w.png",
+    "mindclade-brand-assets/web/fonts.css",
+    "mindclade-brand-assets/web/head-snippet.html",
+    "mindclade-brand-assets/web/site.webmanifest",
+    "mindclade-brand-assets/web/tokens.css",
     "profile/README.md",
 }
 FORBIDDEN_PARTS = {".terraform", ".terragrunt-cache", "__MACOSX", "__pycache__", "credentials"}
@@ -32,6 +44,33 @@ USES_RE = re.compile(r"^\s*(?:-\s*)?uses:\s*([^\s#]+)", re.MULTILINE)
 SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 SEMVER_RE = re.compile(r"^v[0-9]+\.[0-9]+\.[0-9]+$")
 LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+CSS_URL_RE = re.compile(r"url\([\"']?([^\"')]+)")
+LOCAL_ASSET_RE = re.compile(
+    r'(?:href|content)="(?:https://mindclade\.com)?(/mindclade-brand-assets/[^\"]+)"'
+)
+COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
+SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
+EXPECTED_FONT_FILES = {
+    "InstrumentSans-Variable.ttf",
+    "JetBrainsMono-Medium.ttf",
+    "JetBrainsMono-Regular.ttf",
+}
+EXPECTED_LICENSE_FILES = {
+    "InstrumentSans-OFL.txt",
+    "JetBrainsMono-OFL.txt",
+}
+REQUIRED_HEAD_ASSETS = {
+    "/mindclade-brand-assets/fonts/InstrumentSans-Variable.ttf",
+    "/mindclade-brand-assets/fonts/JetBrainsMono-Regular.ttf",
+    "/mindclade-brand-assets/png/apple-touch-icon-180.png",
+    "/mindclade-brand-assets/png/favicon-16-M.png",
+    "/mindclade-brand-assets/png/favicon-32.png",
+    "/mindclade-brand-assets/png/favicon-64.png",
+    "/mindclade-brand-assets/png/mc-og-1200x630.png",
+    "/mindclade-brand-assets/web/fonts.css",
+    "/mindclade-brand-assets/web/site.webmanifest",
+    "/mindclade-brand-assets/web/tokens.css",
+}
 SECRET_PATTERNS = (
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
     re.compile(r"AIza[0-9A-Za-z_-]{35}"),
@@ -50,6 +89,14 @@ def repository_files() -> list[Path]:
         for candidate in ROOT.rglob("*")
         if candidate.is_file() and ".git" not in candidate.parts
     )
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
 
 
 def main() -> int:
@@ -89,6 +136,91 @@ def main() -> int:
             errors.append("profile/README.md exceeds the 1 MB profile budget")
         if "https://github.com/Mindclade/" not in profile:
             errors.append("profile/README.md must link to the Mindclade repository estate")
+
+    brand_root = ROOT / "mindclade-brand-assets"
+    font_root = brand_root / "fonts"
+    sources_path = font_root / "SOURCES.json"
+    if sources_path.is_file():
+        try:
+            sources = json.loads(sources_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            errors.append(f"invalid font source manifest: {exc}")
+            sources = {}
+        if sources.get("schema_version") != 1:
+            errors.append("font source manifest must use schema_version 1")
+        for section in ("fonts", "licenses"):
+            entries = sources.get(section, {})
+            if not isinstance(entries, dict) or not entries:
+                errors.append(f"font source manifest has no {section}")
+                continue
+            expected_names = EXPECTED_FONT_FILES if section == "fonts" else EXPECTED_LICENSE_FILES
+            if set(entries) != expected_names:
+                errors.append(f"font source manifest has an unexpected {section} inventory")
+            for name, metadata in entries.items():
+                target = font_root / name
+                if not target.is_file():
+                    errors.append(f"font source manifest references missing file: {name}")
+                    continue
+                expected_hash = metadata.get("sha256", "")
+                if not SHA256_RE.fullmatch(expected_hash):
+                    errors.append(f"font source manifest has invalid SHA-256 for {name}")
+                elif sha256(target) != expected_hash:
+                    errors.append(f"font or license hash differs from SOURCES.json: {name}")
+                if not COMMIT_RE.fullmatch(metadata.get("commit", "")):
+                    errors.append(f"font source manifest has an unpinned commit for {name}")
+                if section == "fonts":
+                    if target.read_bytes()[:4] != b"\x00\x01\x00\x00":
+                        errors.append(f"font is not a TrueType binary: {name}")
+                    license_name = metadata.get("license", "")
+                    if not (font_root / license_name).is_file():
+                        errors.append(f"font has no local license mapping: {name}")
+
+    head_path = brand_root / "web/head-snippet.html"
+    if head_path.is_file():
+        head = head_path.read_text(encoding="utf-8")
+        if "fonts.googleapis.com" in head or "fonts.gstatic.com" in head:
+            errors.append("head snippet must not load fonts from a third-party CDN")
+        if re.search(r'<link\b[^>]*\bhref="https?://', head):
+            errors.append("head snippet styles, fonts, manifest, and icons must be local")
+        local_assets = set(LOCAL_ASSET_RE.findall(head))
+        for missing in sorted(REQUIRED_HEAD_ASSETS - local_assets):
+            errors.append(f"head snippet lacks required local asset: {missing}")
+        for reference in sorted(local_assets):
+            if not (ROOT / reference.lstrip("/")).is_file():
+                errors.append(f"head snippet references missing local asset: {reference}")
+
+    fonts_css_path = brand_root / "web/fonts.css"
+    if fonts_css_path.is_file():
+        fonts_css = fonts_css_path.read_text(encoding="utf-8")
+        if fonts_css.count("@font-face") != 3:
+            errors.append("fonts.css must declare exactly three local font faces")
+        for destination in CSS_URL_RE.findall(fonts_css):
+            target = (fonts_css_path.parent / destination).resolve()
+            try:
+                target.relative_to(brand_root)
+            except ValueError:
+                errors.append(f"font stylesheet URL escapes brand assets: {destination}")
+                continue
+            if not target.is_file():
+                errors.append(f"font stylesheet references missing asset: {destination}")
+
+    manifest_path = brand_root / "web/site.webmanifest"
+    if manifest_path.is_file():
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            errors.append(f"invalid web manifest: {exc}")
+            manifest = {}
+        for icon in manifest.get("icons", []):
+            destination = icon.get("src", "")
+            target = (manifest_path.parent / destination).resolve()
+            try:
+                target.relative_to(brand_root)
+            except ValueError:
+                errors.append(f"web manifest icon escapes brand assets: {destination}")
+                continue
+            if not target.is_file():
+                errors.append(f"web manifest references missing icon: {destination}")
 
     for markdown_path in sorted(ROOT.rglob("*.md")):
         if ".git" in markdown_path.parts:

@@ -20,6 +20,16 @@ required_paths:
   - mindclade-brand-assets/README.txt
   - mindclade-brand-assets/png/mc-lockup-horizontal-1080w.png
   - mindclade-brand-assets/png/mc-lockup-horizontal-dark-1080w.png
+  - mindclade-brand-assets/fonts/InstrumentSans-Variable.ttf
+  - mindclade-brand-assets/fonts/JetBrainsMono-Regular.ttf
+  - mindclade-brand-assets/fonts/JetBrainsMono-Medium.ttf
+  - mindclade-brand-assets/fonts/InstrumentSans-OFL.txt
+  - mindclade-brand-assets/fonts/JetBrainsMono-OFL.txt
+  - mindclade-brand-assets/fonts/SOURCES.json
+  - mindclade-brand-assets/web/fonts.css
+  - mindclade-brand-assets/web/head-snippet.html
+  - mindclade-brand-assets/web/site.webmanifest
+  - mindclade-brand-assets/web/tokens.css
   - .github/CODEOWNERS
   - .github/workflows/validate.yml
   - CONTRIBUTING.md

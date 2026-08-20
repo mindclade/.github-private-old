@@ -68,10 +68,18 @@ CONTENTS
   mono-wordmark-light.svg        for dark backgrounds
 
 /fonts
-  GET-THE-FONTS.txt             where to get them, how to install
+  InstrumentSans-Variable.ttf  local 400–700 variable font
+  JetBrainsMono-Regular.ttf    local 400 face
+  JetBrainsMono-Medium.ttf     local 500 face
+  InstrumentSans-OFL.txt       Instrument Sans license
+  JetBrainsMono-OFL.txt        JetBrains Mono license
+  SOURCES.json                 immutable sources and SHA-256 hashes
+  GET-THE-FONTS.txt            installation and web deployment
 
 /web
-  head-snippet.html             fonts + favicons + OG tags
+  head-snippet.html             local fonts + icons + social tags
+  fonts.css                     self-hosted @font-face declarations
+  site.webmanifest              local application icon manifest
   tokens.css                    colour and type variables
 
 ============================================================

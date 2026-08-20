@@ -13,3 +13,8 @@ disclosure outside that scope is prohibited.
 
 Files under `mindclade-brand-assets/` are Mindclade trademarks and trade dress. Their
 presence in this repository is not permission to use, alter, redistribute, or publish them.
+
+The Instrument Sans and JetBrains Mono font software under
+`mindclade-brand-assets/fonts/` is third-party software licensed separately under the SIL
+Open Font License 1.1. The applicable license texts accompany the font files and override
+this proprietary license for that font software only.

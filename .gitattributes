@@ -4,5 +4,6 @@
 *.jpg binary
 *.webp binary
 *.pdf binary
+*.ttf binary
 *.svg text linguist-vendored
 mindclade-brand-assets/** linguist-vendored

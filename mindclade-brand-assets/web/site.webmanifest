@@ -1,0 +1,20 @@
+{
+  "name": "Mindclade",
+  "short_name": "Mindclade",
+  "description": "Frontier models for programmable biology",
+  "icons": [
+    {
+      "src": "../png/favicon-256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "../png/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#201C24",
+  "background_color": "#FBFAF7",
+  "display": "standalone"
+}

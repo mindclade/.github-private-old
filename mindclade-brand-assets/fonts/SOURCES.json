@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "fonts": {
+    "InstrumentSans-Variable.ttf": {
+      "family": "Instrument Sans",
+      "upstream_repository": "https://github.com/google/fonts",
+      "commit": "3b1480ea4b6e15fed70a42f4cb29216476a044ed",
+      "upstream_path": "ofl/instrumentsans/InstrumentSans[wdth,wght].ttf",
+      "sha256": "b24f1812584816958afcf22e22d08e44318c5e51651e25d2438efdde389b33b1",
+      "license": "InstrumentSans-OFL.txt"
+    },
+    "JetBrainsMono-Regular.ttf": {
+      "family": "JetBrains Mono",
+      "upstream_repository": "https://github.com/JetBrains/JetBrainsMono",
+      "commit": "19371302b95d218af43299bce79ddbddd0bc364d",
+      "upstream_path": "fonts/ttf/JetBrainsMono-Regular.ttf",
+      "sha256": "e6fd0d7e91550b3ed2b735d4312474362c4716edc4fc0577a0f61ed782d5aed1",
+      "license": "JetBrainsMono-OFL.txt"
+    },
+    "JetBrainsMono-Medium.ttf": {
+      "family": "JetBrains Mono",
+      "upstream_repository": "https://github.com/JetBrains/JetBrainsMono",
+      "commit": "19371302b95d218af43299bce79ddbddd0bc364d",
+      "upstream_path": "fonts/ttf/JetBrainsMono-Medium.ttf",
+      "sha256": "d16e6dc99672734698d629705f617c79f6eb6040f5113efe3a145204dc988109",
+      "license": "JetBrainsMono-OFL.txt"
+    }
+  },
+  "licenses": {
+    "InstrumentSans-OFL.txt": {
+      "commit": "3b1480ea4b6e15fed70a42f4cb29216476a044ed",
+      "upstream_path": "ofl/instrumentsans/OFL.txt",
+      "sha256": "bc29b497c4e8316b2d248322a9cea670c2f0afc24ae0eb7bbaa54e02e00eebab",
+      "local_transform": "trailing whitespace removed"
+    },
+    "JetBrainsMono-OFL.txt": {
+      "commit": "19371302b95d218af43299bce79ddbddd0bc364d",
+      "upstream_path": "OFL.txt",
+      "sha256": "c1ab7c666206842a02b35b30770dac0d7a10156ed401c9defc3f02a754d89e90",
+      "local_transform": "trailing whitespace removed"
+    }
+  }
+}
