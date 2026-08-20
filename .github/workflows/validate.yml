@@ -29,5 +29,14 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Validate repository and profile
-        run: make validate
+      - name: Validate repository home
+        run: python3 scripts/validate-repository-home.py --root .
+
+      - uses: cachix/install-nix-action@630ae543ea3a38a9a4166f03376c02c50f408342  # v31.11.0
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            accept-flake-config = false
+
+      - name: Validate locked flake, repository, and profile
+        run: nix flake check --no-update-lock-file --show-trace
