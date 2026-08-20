@@ -26,10 +26,13 @@ REQUIRED_FILES = {
     "contracts/repository.yaml",
     "mindclade-brand-assets/README.txt",
     "mindclade-brand-assets/fonts/InstrumentSans-Variable.ttf",
+    "mindclade-brand-assets/fonts/InstrumentSans-Variable.woff2",
     "mindclade-brand-assets/fonts/InstrumentSans-OFL.txt",
     "mindclade-brand-assets/fonts/JetBrainsMono-Medium.ttf",
+    "mindclade-brand-assets/fonts/JetBrainsMono-Medium.woff2",
     "mindclade-brand-assets/fonts/JetBrainsMono-OFL.txt",
     "mindclade-brand-assets/fonts/JetBrainsMono-Regular.ttf",
+    "mindclade-brand-assets/fonts/JetBrainsMono-Regular.woff2",
     "mindclade-brand-assets/fonts/SOURCES.json",
     "mindclade-brand-assets/png/mc-lockup-horizontal-1080w.png",
     "mindclade-brand-assets/png/mc-lockup-horizontal-dark-1080w.png",
@@ -52,16 +55,18 @@ COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 EXPECTED_FONT_FILES = {
     "InstrumentSans-Variable.ttf",
+    "InstrumentSans-Variable.woff2",
     "JetBrainsMono-Medium.ttf",
+    "JetBrainsMono-Medium.woff2",
     "JetBrainsMono-Regular.ttf",
+    "JetBrainsMono-Regular.woff2",
 }
 EXPECTED_LICENSE_FILES = {
     "InstrumentSans-OFL.txt",
     "JetBrainsMono-OFL.txt",
 }
 REQUIRED_HEAD_ASSETS = {
-    "/mindclade-brand-assets/fonts/InstrumentSans-Variable.ttf",
-    "/mindclade-brand-assets/fonts/JetBrainsMono-Regular.ttf",
+    "/mindclade-brand-assets/fonts/InstrumentSans-Variable.woff2",
     "/mindclade-brand-assets/png/apple-touch-icon-180.png",
     "/mindclade-brand-assets/png/favicon-16-M.png",
     "/mindclade-brand-assets/png/favicon-32.png",
@@ -71,11 +76,21 @@ REQUIRED_HEAD_ASSETS = {
     "/mindclade-brand-assets/web/site.webmanifest",
     "/mindclade-brand-assets/web/tokens.css",
 }
+EXPECTED_WEB_FONT_URLS = {
+    "../fonts/InstrumentSans-Variable.woff2",
+    "../fonts/JetBrainsMono-Medium.woff2",
+    "../fonts/JetBrainsMono-Regular.woff2",
+}
 SECRET_PATTERNS = (
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
     re.compile(r"AIza[0-9A-Za-z_-]{35}"),
     re.compile(r"gh[pousr]_[A-Za-z0-9]{30,}"),
     re.compile(r"github_pat_[A-Za-z0-9_]{30,}"),
+)
+LEGACY_GITHUB_IDENTITIES = (
+    "Mind" + "clade/",
+    "github.com/" + "Mind" + "clade",
+    "/orgs/" + "Mind" + "clade",
 )
 
 
@@ -116,6 +131,8 @@ def main() -> int:
         if candidate.stat().st_size > 2_000_000:
             continue
         text = candidate.read_text(encoding="utf-8", errors="ignore")
+        if any(legacy in text for legacy in LEGACY_GITHUB_IDENTITIES):
+            errors.append(f"noncanonical GitHub organization identity: {rel.as_posix()}")
         for pattern in SECRET_PATTERNS:
             if pattern.search(text):
                 errors.append(f"possible credential in {rel.as_posix()}")
@@ -126,6 +143,14 @@ def main() -> int:
         for expected in ("repository: .github-private", "visibility: private"):
             if expected not in contract:
                 errors.append(f"repository contract lacks {expected!r}")
+        for canonical_url in (
+            "https://github.com/enterprises/mindclade",
+            "https://github.com/mindclade",
+            "https://github.com/orgs/mindclade/repositories",
+            "https://github.com/mindclade/.github-private",
+        ):
+            if canonical_url not in contract:
+                errors.append(f"repository contract omits canonical GitHub URL: {canonical_url}")
 
     profile_path = ROOT / "profile/README.md"
     if profile_path.is_file():
@@ -134,7 +159,7 @@ def main() -> int:
             errors.append("profile/README.md must contain a level-one heading")
         if len(profile.encode("utf-8")) > 1_000_000:
             errors.append("profile/README.md exceeds the 1 MB profile budget")
-        if "https://github.com/Mindclade/" not in profile:
+        if "https://github.com/mindclade/" not in profile:
             errors.append("profile/README.md must link to the Mindclade repository estate")
 
     brand_root = ROOT / "mindclade-brand-assets"
@@ -169,8 +194,9 @@ def main() -> int:
                 if not COMMIT_RE.fullmatch(metadata.get("commit", "")):
                     errors.append(f"font source manifest has an unpinned commit for {name}")
                 if section == "fonts":
-                    if target.read_bytes()[:4] != b"\x00\x01\x00\x00":
-                        errors.append(f"font is not a TrueType binary: {name}")
+                    expected_magic = b"wOF2" if target.suffix == ".woff2" else b"\x00\x01\x00\x00"
+                    if target.read_bytes()[:4] != expected_magic:
+                        errors.append(f"font has invalid binary signature: {name}")
                     license_name = metadata.get("license", "")
                     if not (font_root / license_name).is_file():
                         errors.append(f"font has no local license mapping: {name}")
@@ -182,6 +208,12 @@ def main() -> int:
             errors.append("head snippet must not load fonts from a third-party CDN")
         if re.search(r'<link\b[^>]*\bhref="https?://', head):
             errors.append("head snippet styles, fonts, manifest, and icons must be local")
+        if head.count('rel="preload"') != 1:
+            errors.append("head snippet must preload only Instrument Sans")
+        if 'type="font/woff2"' not in head:
+            errors.append("head snippet font preload must use WOFF2")
+        if re.search(r'<link\b[^>]*\brel="preload"[^>]*JetBrainsMono', head):
+            errors.append("head snippet must load JetBrains Mono on demand")
         local_assets = set(LOCAL_ASSET_RE.findall(head))
         for missing in sorted(REQUIRED_HEAD_ASSETS - local_assets):
             errors.append(f"head snippet lacks required local asset: {missing}")
@@ -194,7 +226,10 @@ def main() -> int:
         fonts_css = fonts_css_path.read_text(encoding="utf-8")
         if fonts_css.count("@font-face") != 3:
             errors.append("fonts.css must declare exactly three local font faces")
-        for destination in CSS_URL_RE.findall(fonts_css):
+        font_destinations = set(CSS_URL_RE.findall(fonts_css))
+        if font_destinations != EXPECTED_WEB_FONT_URLS:
+            errors.append("fonts.css must use only the three WOFF2 web fonts")
+        for destination in font_destinations:
             target = (fonts_css_path.parent / destination).resolve()
             try:
                 target.relative_to(brand_root)
@@ -252,7 +287,7 @@ def main() -> int:
             target, separator, version = use.rpartition("@")
             if not separator:
                 errors.append(f"unversioned action in {relative(workflow_path)}: {use}")
-            elif target.startswith("Mindclade/.github/.github/workflows/"):
+            elif target.startswith("mindclade/.github/.github/workflows/"):
                 if not SEMVER_RE.fullmatch(version):
                     errors.append(f"internal workflow lacks full semver in {relative(workflow_path)}: {use}")
             elif not SHA_RE.fullmatch(version):

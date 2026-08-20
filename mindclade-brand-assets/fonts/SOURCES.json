@@ -24,6 +24,30 @@
       "upstream_path": "fonts/ttf/JetBrainsMono-Medium.ttf",
       "sha256": "d16e6dc99672734698d629705f617c79f6eb6040f5113efe3a145204dc988109",
       "license": "JetBrainsMono-OFL.txt"
+    },
+    "InstrumentSans-Variable.woff2": {
+      "family": "Instrument Sans",
+      "upstream_repository": "https://github.com/Instrument/instrument-sans",
+      "commit": "7fa22308a3d0c94ee2b3cd537a1196b65db34a3e",
+      "upstream_path": "fonts/webfonts/InstrumentSans[wdth,wght].woff2",
+      "sha256": "aa72922aafcc0dc18f36ec1d805b0212057dabe8b9d5b8b57f67035aea1b826d",
+      "license": "InstrumentSans-OFL.txt"
+    },
+    "JetBrainsMono-Regular.woff2": {
+      "family": "JetBrains Mono",
+      "upstream_repository": "https://github.com/JetBrains/JetBrainsMono",
+      "commit": "19371302b95d218af43299bce79ddbddd0bc364d",
+      "upstream_path": "fonts/webfonts/JetBrainsMono-Regular.woff2",
+      "sha256": "f1a7a03672cdd494ce0d5543fac6e4360fe22403c6de297fdc2e55a815f7baff",
+      "license": "JetBrainsMono-OFL.txt"
+    },
+    "JetBrainsMono-Medium.woff2": {
+      "family": "JetBrains Mono",
+      "upstream_repository": "https://github.com/JetBrains/JetBrainsMono",
+      "commit": "19371302b95d218af43299bce79ddbddd0bc364d",
+      "upstream_path": "fonts/webfonts/JetBrainsMono-Medium.woff2",
+      "sha256": "fe1c9099e3ea4123a6216d8a4a31970a2cfc6e9d80056da165012f406c83e219",
+      "license": "JetBrainsMono-OFL.txt"
     }
   },
   "licenses": {

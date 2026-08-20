@@ -71,6 +71,9 @@ CONTENTS
   InstrumentSans-Variable.ttf  local 400–700 variable font
   JetBrainsMono-Regular.ttf    local 400 face
   JetBrainsMono-Medium.ttf     local 500 face
+  InstrumentSans-Variable.woff2  web-optimized 400–700 variable font
+  JetBrainsMono-Regular.woff2    web-optimized 400 face
+  JetBrainsMono-Medium.woff2     web-optimized 500 face
   InstrumentSans-OFL.txt       Instrument Sans license
   JetBrainsMono-OFL.txt        JetBrains Mono license
   SOURCES.json                 immutable sources and SHA-256 hashes

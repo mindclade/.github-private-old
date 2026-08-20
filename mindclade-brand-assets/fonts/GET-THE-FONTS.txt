@@ -28,6 +28,10 @@ InstrumentSans-Variable.ttf contains the normal-width 400,
 Mono is stored as separate Regular (400) and Medium (500)
 files.
 
+Matching WOFF2 files are the web delivery formats. Keep the
+TTF files for desktop installation and source fidelity; do
+not serve them to browsers when the WOFF2 files are present.
+
 SOURCES.json records the immutable upstream commits, source
 paths, SHA-256 hashes, and license mapping. The two OFL files
 next to the fonts are the controlling third-party licenses.
@@ -46,7 +50,9 @@ FOR THE WEBSITE
 Serve the complete mindclade-brand-assets directory at
 /mindclade-brand-assets/ and paste /web/head-snippet.html
 inside the page <head>. The snippet loads /web/fonts.css,
-which resolves the font files locally from ../fonts/.
+which resolves the WOFF2 files locally from ../fonts/. Only
+Instrument Sans is preloaded; JetBrains Mono loads on demand
+when a page actually uses the mono family.
 
 No Google Fonts or other third-party runtime request is used.
 Keep the font files, SOURCES.json, and both OFL license files

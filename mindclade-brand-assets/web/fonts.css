@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Instrument Sans";
-  src: url("../fonts/InstrumentSans-Variable.ttf") format("truetype-variations");
+  src: url("../fonts/InstrumentSans-Variable.woff2") format("woff2");
   font-style: normal;
   font-weight: 400 700;
   font-stretch: 75% 100%;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  src: url("../fonts/JetBrainsMono-Regular.woff2") format("woff2");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: "JetBrains Mono";
-  src: url("../fonts/JetBrainsMono-Medium.ttf") format("truetype");
+  src: url("../fonts/JetBrainsMono-Medium.woff2") format("woff2");
   font-style: normal;
   font-weight: 500;
   font-display: swap;

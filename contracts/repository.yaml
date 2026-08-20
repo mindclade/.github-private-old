@@ -5,6 +5,11 @@ schema_version: 1
 repository: .github-private
 repository_class: enterprise-control
 visibility: private
+github:
+  enterprise_url: https://github.com/enterprises/mindclade
+  organization_url: https://github.com/mindclade
+  repository_index_url: https://github.com/orgs/mindclade/repositories
+  repository_url: https://github.com/mindclade/.github-private
 authority:
   - member-only-organization-profile
   - internal-navigation
@@ -23,6 +28,9 @@ required_paths:
   - mindclade-brand-assets/fonts/InstrumentSans-Variable.ttf
   - mindclade-brand-assets/fonts/JetBrainsMono-Regular.ttf
   - mindclade-brand-assets/fonts/JetBrainsMono-Medium.ttf
+  - mindclade-brand-assets/fonts/InstrumentSans-Variable.woff2
+  - mindclade-brand-assets/fonts/JetBrainsMono-Regular.woff2
+  - mindclade-brand-assets/fonts/JetBrainsMono-Medium.woff2
   - mindclade-brand-assets/fonts/InstrumentSans-OFL.txt
   - mindclade-brand-assets/fonts/JetBrainsMono-OFL.txt
   - mindclade-brand-assets/fonts/SOURCES.json

@@ -7,7 +7,10 @@
 
 | Repository contract | Value |
 | --- | --- |
-| Repository | `Mindclade/.github-private` |
+| Enterprise | [`mindclade`](https://github.com/enterprises/mindclade) |
+| Organization | [`mindclade`](https://github.com/mindclade) |
+| Repository index | [Mindclade repositories](https://github.com/orgs/mindclade/repositories) |
+| Repository | [`mindclade/.github-private`](https://github.com/mindclade/.github-private) |
 | Class | `enterprise-control` |
 | Visibility | `private` |
 | Production authority | `false` |
@@ -31,12 +34,12 @@ cloud or Kubernetes resources, application source, credentials, or incident reco
 
 | Concern | Authoritative repository |
 | --- | --- |
-| Shared workflows and community health | [`Mindclade/.github`](https://github.com/Mindclade/.github) |
-| GitHub organization governance | [`Mindclade/github-config`](https://github.com/Mindclade/github-config) |
-| Ring-0 trust and recovery | [`Mindclade/bootstrap`](https://github.com/Mindclade/bootstrap) |
-| Google Cloud desired state | [`Mindclade/infrastructure-live`](https://github.com/Mindclade/infrastructure-live) |
-| Kubernetes and Argo CD desired state | [`Mindclade/gitops`](https://github.com/Mindclade/gitops) |
-| Product and model source | [`Mindclade/mindclade-internal-monorepo`](https://github.com/Mindclade/mindclade-internal-monorepo) |
+| Shared workflows and community health | [`mindclade/.github`](https://github.com/mindclade/.github) |
+| GitHub organization governance | [`mindclade/github-config`](https://github.com/mindclade/github-config) |
+| Ring-0 trust and recovery | [`mindclade/bootstrap`](https://github.com/mindclade/bootstrap) |
+| Google Cloud desired state | [`mindclade/infrastructure-live`](https://github.com/mindclade/infrastructure-live) |
+| Kubernetes and Argo CD desired state | [`mindclade/gitops`](https://github.com/mindclade/gitops) |
+| Product and model source | [`mindclade/mindclade-internal-monorepo`](https://github.com/mindclade/mindclade-internal-monorepo) |
 
 ## Repository layout
 
@@ -88,7 +91,8 @@ GitHub does not depend on local fonts to reproduce the brand correctly. The asse
 proprietary and remains subject to `LICENSE`.
 
 The web handoff under `mindclade-brand-assets/web/` is fully self-hosted. Its head snippet
-loads local font faces, tokens, icons, manifest, and social image from the
+preloads the local Instrument Sans WOFF2 face and loads JetBrains Mono on demand, along with
+tokens, icons, manifest, and social image from the
 `/mindclade-brand-assets/` deployment path; it makes no Google Fonts request. Upstream font
 commits, file hashes, and OFL license mappings are recorded in
 `mindclade-brand-assets/fonts/SOURCES.json`.

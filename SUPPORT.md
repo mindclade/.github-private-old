@@ -5,8 +5,8 @@ This repository's issue tracker is disabled. Route requests to the system that o
 | Need | Route |
 | --- | --- |
 | Broken or stale member-profile link | Open a pull request against this repository |
-| Repository or access governance | [`Mindclade/github-config`](https://github.com/Mindclade/github-config) |
-| Shared workflow or template | [`Mindclade/.github`](https://github.com/Mindclade/.github) |
+| Repository or access governance | [`mindclade/github-config`](https://github.com/mindclade/github-config) |
+| Shared workflow or template | [`mindclade/.github`](https://github.com/mindclade/.github) |
 | Infrastructure incident | Follow the owning runbook linked from the member profile |
 | Security or biosecurity concern | Follow [`SECURITY.md`](SECURITY.md) |
 

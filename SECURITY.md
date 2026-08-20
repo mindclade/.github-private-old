@@ -6,12 +6,12 @@ channel.
 
 | Channel | Use it for |
 | --- | --- |
-| [Private security advisory](https://github.com/Mindclade/.github-private/security/advisories/new) | A vulnerability specific to this repository |
+| [Private security advisory](https://github.com/mindclade/.github-private/security/advisories/new) | A vulnerability specific to this repository |
 | `security@mindclade.com` | Security reports that cannot be submitted through GitHub |
 | `biosecurity@mindclade.com` | Screening bypasses, unsafe generations, or dual-use model behavior |
 
 The canonical organization security policy is
-[`Mindclade/.github/SECURITY.md`](https://github.com/Mindclade/.github/blob/main/SECURITY.md).
+[`mindclade/.github/SECURITY.md`](https://github.com/mindclade/.github/blob/main/SECURITY.md).
 
 Never commit credentials, customer data, production configuration, private model material,
 restricted biological content, incident-sensitive evidence, or access-control exports. If a
