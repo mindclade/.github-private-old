@@ -337,9 +337,10 @@ def main() -> int:
             if not separator:
                 errors.append(f"unversioned action in {relative(workflow_path)}: {use}")
             elif target.startswith("mindclade/.github/.github/workflows/"):
-                if not SEMVER_RE.fullmatch(version):
+                if not (SEMVER_RE.fullmatch(version) or SHA_RE.fullmatch(version)):
                     errors.append(
-                        f"internal workflow lacks full semver in {relative(workflow_path)}: {use}"
+                        f"internal workflow lacks an immutable semver or commit in "
+                        f"{relative(workflow_path)}: {use}"
                     )
             elif not SHA_RE.fullmatch(version):
                 errors.append(
