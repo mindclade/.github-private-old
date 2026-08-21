@@ -59,7 +59,8 @@ approved incident system; link sanitized identifiers from GitHub when traceabili
 ## Working agreements
 
 - Changes reach `main` through reviewed pull requests and required checks.
-- Third-party GitHub Actions use full commit-SHA pins; internal reusable workflows use immutable full semver.
+- Third-party GitHub Actions use full commit-SHA pins; internal reusable workflows use an
+  immutable full semver release or an audited full commit SHA while that release is pending.
 - CODEOWNERS, rulesets, environments, access, and repository properties are declared in `github-config`; they do not inherit from a profile repository.
 - Production changes use protected environments, separate plan/apply identities, and exact reviewed artifacts.
 - Security and biosecurity concerns use private reporting channels, never ordinary issues or discussions.
