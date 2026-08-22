@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "repository": "mindclade/.github-private",
+  "inventorySources": [
+    {
+      "type": "vendored-provenance",
+      "path": "mindclade-brand-assets/fonts/SOURCES.json",
+      "sha256": "d35a48d4034b32fd7afd1468c94c4bd67f7542880374d9452cf3ff4b5ab75302"
+    }
+  ],
+  "materials": [
+    {
+      "name": "Instrument Sans",
+      "version": "3b1480ea+7fa22308",
+      "licenseExpression": "OFL-1.1",
+      "attribution": "Copyright 2022 The Instrument Sans Project Authors",
+      "sourceUrl": "https://github.com/Instrument/instrument-sans",
+      "licenseText": {
+        "path": "mindclade-brand-assets/fonts/InstrumentSans-OFL.txt",
+        "sha256": "bc29b497c4e8316b2d248322a9cea670c2f0afc24ae0eb7bbaa54e02e00eebab"
+      },
+      "includedPaths": [
+        "mindclade-brand-assets/fonts/InstrumentSans-Variable.ttf",
+        "mindclade-brand-assets/fonts/InstrumentSans-Variable.woff2"
+      ],
+      "evidencePaths": [
+        "mindclade-brand-assets/fonts/SOURCES.json"
+      ],
+      "sbomNames": [
+        "Instrument Sans",
+        "InstrumentSans",
+        "InstrumentSans-Variable"
+      ]
+    },
+    {
+      "name": "JetBrains Mono",
+      "version": "19371302b95d218af43299bce79ddbddd0bc364d",
+      "licenseExpression": "OFL-1.1",
+      "attribution": "Copyright 2020 The JetBrains Mono Project Authors",
+      "sourceUrl": "https://github.com/JetBrains/JetBrainsMono",
+      "licenseText": {
+        "path": "mindclade-brand-assets/fonts/JetBrainsMono-OFL.txt",
+        "sha256": "c1ab7c666206842a02b35b30770dac0d7a10156ed401c9defc3f02a754d89e90"
+      },
+      "includedPaths": [
+        "mindclade-brand-assets/fonts/JetBrainsMono-Regular.ttf",
+        "mindclade-brand-assets/fonts/JetBrainsMono-Medium.ttf",
+        "mindclade-brand-assets/fonts/JetBrainsMono-Regular.woff2",
+        "mindclade-brand-assets/fonts/JetBrainsMono-Medium.woff2"
+      ],
+      "evidencePaths": [
+        "mindclade-brand-assets/fonts/SOURCES.json"
+      ],
+      "sbomNames": [
+        "JetBrains Mono",
+        "JetBrainsMono",
+        "JetBrainsMono-Regular",
+        "JetBrainsMono-Medium"
+      ]
+    }
+  ]
+}
