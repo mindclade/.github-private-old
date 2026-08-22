@@ -28,6 +28,8 @@
 | Visibility | `private` |
 | Change model | `pull-request` |
 | Authority | `member-only-organization-profile`<br>`internal-navigation` |
+| Primary readers | Mindclade members and brand stewards |
+| First success | [Validate the member surface](#quick-start) |
 | Start here | [`profile/README.md`](profile/README.md) |
 
 ## Mission
@@ -53,16 +55,23 @@ visibility, and `profile/README.md` path are part of GitHub's rendering contract
 
 ## Quick start
 
-Run the credential-free repository and profile checks from the committed Nix closure:
+Prerequisite: Nix with flakes enabled. The check is local and credential-free; it does not
+publish the profile or change organization settings.
 
 ```sh
 nix flake check --no-update-lock-file
 ```
 
-Expected result: the flake realizes the CI shell, then runs `make validate` and `make lint` with
-its pinned actionlint, yamllint, Python, and Make tools. Required profile and brand files, local
-links, asset provenance, action pins, and repository invariants pass. No validation command
-publishes the profile or changes organization settings.
+**Success means:** the flake realizes the CI shell and runs `make validate` and `make lint` with
+its pinned tools. Required profile and brand files, local links, asset provenance, action pins,
+and repository invariants all pass.
+
+**If it fails:** rerun `nix develop .#ci --command make validate`, then
+`nix develop .#ci --command make lint`, and fix the first reported profile, local-link,
+provenance, YAML, or workflow error.
+
+**Safety boundary:** validation never publishes the member profile. Repository visibility and
+settings remain governed by `github-config`.
 
 ## Estate position
 
@@ -110,8 +119,9 @@ publishing or pushing is an explicit operator action.
 - [Member profile](profile/README.md)
 - [Brand asset guide](mindclade-brand-assets/README.txt)
 - [Contributing](CONTRIBUTING.md)
-- [Support](SUPPORT.md)
-- [License](LICENSE)
+- Policies and terms: [governance](GOVERNANCE.md) · [conduct](CODE_OF_CONDUCT.md) ·
+  [support](SUPPORT.md) · [legal](LEGAL.md) · [license](LICENSE) · [notice](NOTICE) ·
+  [changes](CHANGELOG.md)
 
 ## Security
 

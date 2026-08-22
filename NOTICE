@@ -1,0 +1,37 @@
+Mindclade, LLC. Proprietary and Third-Party Notice
+
+Document-Control: mindclade-notice@1
+Repository: mindclade/.github-private
+Last reviewed: August 21, 2026
+
+Copyright © 2026 Mindclade, LLC. All Rights Reserved.
+
+First-party material in this repository is governed by the accompanying LICENSE
+and identified by SPDX-License-Identifier: LicenseRef-Mindclade-Proprietary.
+The Mindclade names, wordmarks, lockups, icons, colors, layouts, and other files
+under mindclade-brand-assets/ are protected brand assets. Repository access is
+not permission to publish, redistribute, modify, or use those assets outside an
+authorized Mindclade purpose.
+
+The Instrument Sans and JetBrains Mono font software under
+mindclade-brand-assets/fonts/ is third-party software licensed separately under
+the SIL Open Font License 1.1. The controlling license texts are:
+
+- mindclade-brand-assets/fonts/InstrumentSans-OFL.txt
+- mindclade-brand-assets/fonts/JetBrainsMono-OFL.txt
+
+mindclade-brand-assets/fonts/SOURCES.json records the immutable upstream source,
+commit, license mapping, and SHA-256 digest for each font and license file.
+Those third-party terms control for the font software. Nothing in the Mindclade
+LICENSE restricts rights granted directly by the SIL Open Font License.
+
+Portions of CODE_OF_CONDUCT.md are adapted from Contributor Covenant version
+2.1, copyright © 2020 Organization for Ethical Source, under Creative Commons
+Attribution 4.0 (https://creativecommons.org/licenses/by/4.0/). Mindclade
+modified the scope, reporting, enforcement, and project-specific language. The
+Creative Commons license controls the upstream portions; the Mindclade LICENSE
+does not narrow the rights granted by that license.
+
+Do not remove or alter copyright, SPDX, attribution, provenance, trademark, or
+license notices. An omitted entry in this NOTICE does not relicense third-party
+material or remove an attribution obligation.
