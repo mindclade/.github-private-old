@@ -22,6 +22,14 @@ forbidden_authority:
   - application-source
 required_paths:
   - AGENTS.md
+  - README.md
+  - LEGAL.md
+  - LICENSE
+  - NOTICE
+  - CODE_OF_CONDUCT.md
+  - GOVERNANCE.md
+  - CHANGELOG.md
+  - .github/PULL_REQUEST_TEMPLATE.md
   - profile/README.md
   - mindclade-brand-assets/README.txt
   - mindclade-brand-assets/png/mono-wordmark-1080w.png

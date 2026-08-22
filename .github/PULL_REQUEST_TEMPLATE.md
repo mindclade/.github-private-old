@@ -25,3 +25,14 @@ make lint
 - [ ] No credential, customer data, private model material, restricted biological content, or incident-sensitive detail is present.
 - [ ] `.github-private` remains private and `profile/README.md` remains the rendered source.
 - [ ] Workflow permissions are explicit and every external action is immutable-pinned.
+
+
+## Contributor authorization
+
+- [ ] I am authorized under a current written agreement with Mindclade, LLC. to
+      submit every part of this contribution.
+- [ ] I identified every third-party component, dataset, model, font, media,
+      specification, or generated artifact and preserved its source, license,
+      provenance, and required notices.
+- [ ] I updated `LICENSE`, `NOTICE`, the SBOM, or other license evidence when
+      the included or distributed material changed.
