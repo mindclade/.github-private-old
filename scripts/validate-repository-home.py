@@ -15,6 +15,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import urlsplit
 
 MARKER = "<!-- mindclade-doc: repository-home@2 -->"
 THEME_DIRECTIVE = '%%{init: {"theme":"base"'
@@ -29,6 +30,12 @@ REQUIRED_HEADINGS = (
     "## Change path",
     "## Documentation and support",
     "## Security",
+)
+READER_SUCCESS_LABELS = (
+    "Prerequisite:",
+    "**Success means:**",
+    "**If it fails:**",
+    "**Safety boundary:**",
 )
 EXTRA_BADGES = {
     "bootstrap": (("trust", "Ring 0"),),
@@ -499,6 +506,18 @@ def image_sources(markdown: str) -> list[str]:
     return values
 
 
+def has_remote_shields_reference(markdown: str) -> bool:
+    """Return whether Markdown contains a URL hosted by the Shields service."""
+    urls = re.findall(r"https?://[^\s<>\"')]+", markdown, flags=re.I)
+    for url in urls:
+        try:
+            if urlsplit(url).hostname == "img.shields.io":
+                return True
+        except ValueError:
+            continue
+    return False
+
+
 def prose_word_count(markdown: str) -> int:
     text = re.sub(r"```.*?```", " ", markdown, flags=re.S)
     text = re.sub(r"<!--.*?-->", " ", text, flags=re.S)
@@ -605,6 +624,13 @@ def validate(root: Path) -> list[str]:
         errors.append("README.md must use the responsive light/dark <picture> header")
 
     rows = contract_table(markdown)
+    if not rows.get("Primary readers", "").strip():
+        errors.append("contract table must identify the primary readers")
+    if not re.fullmatch(r"\[[^\]]+\]\(#quick-start\)", rows.get("First success", "")):
+        errors.append("contract table First success must link to #quick-start")
+    for label in READER_SUCCESS_LABELS:
+        if markdown.count(label) != 1:
+            errors.append(f"README.md must contain exactly one reader-success label: {label}")
     expected_rows = {
         "Class": str(contract.get("repository_class", "")),
         "Visibility": str(contract.get("visibility", "")),
@@ -631,7 +657,6 @@ def validate(root: Path) -> list[str]:
     errors.extend(validate_legal_claims(root))
     errors.extend(validate_third_party_notices(root))
 
-    badge_dir = root / "docs" / "assets" / "badges"
     for filename, label, key in CORE_BADGES:
         relative = f"docs/assets/badges/{filename}.svg"
         path = root / relative
@@ -659,7 +684,7 @@ def validate(root: Path) -> list[str]:
         destination = source.split("#", 1)[0]
         if destination and not (root / destination).is_file():
             errors.append(f"broken local README image: {destination}")
-    if "img.shields.io" in markdown:
+    if has_remote_shields_reference(markdown):
         errors.append("remote Shields badges are not allowed")
     if re.search(r"\.gif(?:[\"')\s]|$)", markdown, flags=re.I):
         errors.append("animated GIFs are not allowed in root READMEs")
