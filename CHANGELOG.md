@@ -10,12 +10,16 @@ not reconstructed or relabeled here.
 
 ### Added
 
+- Added a complete SHA-256 asset manifest, license-provenance links, reproducible archive builder,
+  and negative integrity tests for the checked-in brand distribution.
 - Added the exact estate-wide `LEGAL.md` reliance policy and made it part of
   the repository contract.
 
 ### Changed
 
-- Synchronized policy bundle `2026.08.22.1`, pinned repository-home validation to canonical
+- Defined `.github-private` consistently as the checked-in brand distribution rather than the
+  corporate brand-governance authority.
+- Synchronized policy bundle `2026.08.23.1`, pinned repository-home validation to canonical
   commit `8467615f12868d4b78718b8ddf7f05797c44a507`, and removed the obsolete duplicate validator.
 - Updated the proprietary license with the protected-disclosure notice and
   recorded the Contributor Covenant 2.1 attribution and modifications.

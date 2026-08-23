@@ -1,0 +1,514 @@
+{
+  "authority": "checked-in-distribution-not-brand-governance-authority",
+  "distribution_id": "mindclade-checked-in-brand-assets",
+  "effective_date": "2026-08-23",
+  "files": [
+    {
+      "media_type": "text/plain",
+      "path": "README.txt",
+      "sha256": "0798c56c369752f05f9321f80cca4327a5e4e1dbddd7c52952ddb204b0cfb37c",
+      "size": 6703
+    },
+    {
+      "media_type": "text/plain",
+      "path": "fonts/GET-THE-FONTS.txt",
+      "sha256": "2673b262ee3a5dea30346767d626ffb1dbc9ce41d3be02dc5b32059b951d952c",
+      "size": 2591
+    },
+    {
+      "media_type": "text/plain",
+      "path": "fonts/InstrumentSans-OFL.txt",
+      "sha256": "bc29b497c4e8316b2d248322a9cea670c2f0afc24ae0eb7bbaa54e02e00eebab",
+      "size": 4402
+    },
+    {
+      "media_type": "font/ttf",
+      "path": "fonts/InstrumentSans-Variable.ttf",
+      "sha256": "b24f1812584816958afcf22e22d08e44318c5e51651e25d2438efdde389b33b1",
+      "size": 194336
+    },
+    {
+      "media_type": "font/woff2",
+      "path": "fonts/InstrumentSans-Variable.woff2",
+      "sha256": "aa72922aafcc0dc18f36ec1d805b0212057dabe8b9d5b8b57f67035aea1b826d",
+      "size": 88784
+    },
+    {
+      "media_type": "font/ttf",
+      "path": "fonts/JetBrainsMono-Medium.ttf",
+      "sha256": "d16e6dc99672734698d629705f617c79f6eb6040f5113efe3a145204dc988109",
+      "size": 270316
+    },
+    {
+      "media_type": "font/woff2",
+      "path": "fonts/JetBrainsMono-Medium.woff2",
+      "sha256": "fe1c9099e3ea4123a6216d8a4a31970a2cfc6e9d80056da165012f406c83e219",
+      "size": 94284
+    },
+    {
+      "media_type": "text/plain",
+      "path": "fonts/JetBrainsMono-OFL.txt",
+      "sha256": "c1ab7c666206842a02b35b30770dac0d7a10156ed401c9defc3f02a754d89e90",
+      "size": 4398
+    },
+    {
+      "media_type": "font/ttf",
+      "path": "fonts/JetBrainsMono-Regular.ttf",
+      "sha256": "e6fd0d7e91550b3ed2b735d4312474362c4716edc4fc0577a0f61ed782d5aed1",
+      "size": 270224
+    },
+    {
+      "media_type": "font/woff2",
+      "path": "fonts/JetBrainsMono-Regular.woff2",
+      "sha256": "f1a7a03672cdd494ce0d5543fac6e4360fe22403c6de297fdc2e55a815f7baff",
+      "size": 92380
+    },
+    {
+      "media_type": "application/json",
+      "path": "fonts/SOURCES.json",
+      "sha256": "d35a48d4034b32fd7afd1468c94c4bd67f7542880374d9452cf3ff4b5ab75302",
+      "size": 3053
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/apple-touch-icon-180.png",
+      "sha256": "858fb9f8f09687bd6bab3732d49a684c49354a3f7bf92b3dc7d6760cd6af1dd1",
+      "size": 6043
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/favicon-128.png",
+      "sha256": "08acb90b4f6182485804801205825de0d485bdec1a99870be1a0b9d74c852970",
+      "size": 4446
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/favicon-16-M.png",
+      "sha256": "4a81d088bffe510b2f1855596536082655333e1169ebaf97a6964fd54b17af13",
+      "size": 428
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/favicon-16.png",
+      "sha256": "4b0461aa469d89e51471178e74d6f58efe9b0d1566c5ea1e8263ccb529a01d9a",
+      "size": 536
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/favicon-256.png",
+      "sha256": "4b7a89a696cbcee12870774fbbc108217bda6fadc8356a602f7447c60dec5a51",
+      "size": 9098
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/favicon-32.png",
+      "sha256": "2cad569bd81ab339fd12528a507647f33ac176cc404a07cc63f030facdb48d44",
+      "size": 1013
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/favicon-48.png",
+      "sha256": "e6625165935a8ff5be951b7d339b4da445be87a003ac8faf1293e214f8b35e06",
+      "size": 1520
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/favicon-512.png",
+      "sha256": "81495ff4ad9aa0b8837b8da868ef046780cce53912ab982df481665c032f5bfc",
+      "size": 19350
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/favicon-64.png",
+      "sha256": "e79abe5d53f9f67c6a281a478bbe7f84e95ce3ab66fdfbbcd3613f5811faa152",
+      "size": 2020
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-avatar-460.png",
+      "sha256": "1111b02100309f3b6aa4ecd8a286648a52f564d2a97611e937720197e2f5e688",
+      "size": 20512
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-lockup-horizontal-1080w.png",
+      "sha256": "55689774129a69ce9d97721d724e7e80a21f2ebb30d1540c6d6fc30955db3ed1",
+      "size": 30245
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-lockup-horizontal-540w.png",
+      "sha256": "f3c8d6f0173a243b4a5eac2fdd1a1274f43be3bf322bcf853e5ca769662451eb",
+      "size": 13886
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-lockup-horizontal-dark-1080w.png",
+      "sha256": "f5023fb9f698a74d8545222d9399fe7458380af5151b11dfb1c94aa5220af3ba",
+      "size": 31160
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-lockup-horizontal-dark-540w.png",
+      "sha256": "821ee1fcf50cba84c9d3211e21c1aa755824ca30a14ea3cb2d3d486c0d3885a6",
+      "size": 13813
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-lockup-horizontal-dark.png",
+      "sha256": "e7a03f8d44d5d921e2eeeb760f2dd11db79c2a87d4cd56d03cc2cfe0c377f970",
+      "size": 75247
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-lockup-horizontal.png",
+      "sha256": "9bde3774a10cbc47aadf604bd93fa32175018d52569e545ed2a5bea610e0d7be",
+      "size": 70401
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-og-1200x630.png",
+      "sha256": "df57df9503e6dbecab779194e515c92970ed6e4388ccd29bdfe01977e8747d0e",
+      "size": 56026
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-submark.png",
+      "sha256": "c7b9569a63264dce15c36d80683470a73ae8d54fc30b66d4583e1401de4157f0",
+      "size": 15116
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-bone-1024.png",
+      "sha256": "35e721323ba8bb1130f2005810d5c0e58a971f45fa2b44c53caec8c217a9fb42",
+      "size": 44810
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-bone-128.png",
+      "sha256": "aa3c23b61b5ac393aaf52d738f958d02d5801f570950a9f7abd5358ce23dff57",
+      "size": 4454
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-bone-256.png",
+      "sha256": "224142e3230781a3c60452ce206f841174a1089391144ad797a96df2a066f045",
+      "size": 9178
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-bone-32.png",
+      "sha256": "2e157616283e644655a837c3730d5b6f01c7c6c5d041fcaa1d88308a6157ec7e",
+      "size": 1076
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-bone-512.png",
+      "sha256": "54728a9d663e6c0e6662268be895f2f622210b752600471485720a5e02c33b59",
+      "size": 19382
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-bone-64.png",
+      "sha256": "2b77205bb071f3188fd1e938b2ea11171dd09fe9bb9c78b6356cd6eeb27beb48",
+      "size": 2192
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-ink-1024.png",
+      "sha256": "1a0d39910cff52914e2e0c9840673f7b750857adbb1a74ddebf8c4dcc8f1ec2f",
+      "size": 44440
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-onecolor-1024.png",
+      "sha256": "c8fc1e4fd9e499614b672fc32f7402b89d7a762e01c9d77c57797bc487bf7f86",
+      "size": 44183
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-onecolor-128.png",
+      "sha256": "d413d71596ce8efc8ff3264c0ddc46fdac4c434bf478898b20ce0c7dd8242cad",
+      "size": 4473
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-onecolor-256.png",
+      "sha256": "6d8a26824d56a6422982aa9a1c5c69d67052848182dbc0b3fbff1675c51669a3",
+      "size": 9054
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-onecolor-32.png",
+      "sha256": "5ddc0c5197f40885ede956f9d799d1a7f1993db87cfa1dd3d60569c33feabb56",
+      "size": 1066
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-onecolor-512.png",
+      "sha256": "1df19bd5f0df31b8482ab0199206eaaaad9cff789d01a9b394c8148207556293",
+      "size": 19253
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-tile-onecolor-64.png",
+      "sha256": "74e83ee9a301dae5497f679e69c0bd0f6a0225d05d8eb296398bd0e8adf92144",
+      "size": 2152
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mc-wordmark.png",
+      "sha256": "718d88546c2078f47af6a98d16dc98038d6eefb309e8a6fb0c115a6c1ecd0ce3",
+      "size": 24988
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-icon-16.png",
+      "sha256": "91224adee8e24c50fce98fcaf14ae280b65b04d82b98fd9fa80a3eafd440e14d",
+      "size": 390
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-icon-180.png",
+      "sha256": "0d1a3ff30e248aa1f31d8105b1d9af1a78dacd9d80fe595185e33b7281d27c1e",
+      "size": 4787
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-icon-32.png",
+      "sha256": "03b46b7fdae1a29a7800a94e4222659ef084777eea5e5419bcb5274245205aa4",
+      "size": 711
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-icon-48.png",
+      "sha256": "7de93c3eaab3062668deab43140f2dff63eb16634e44f225f2d1a87f3222b69c",
+      "size": 1131
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-icon-64.png",
+      "sha256": "e3fe80aa601a4b8b5eeb2c3a86cb98829fba465dad98e0a6936a363379141695",
+      "size": 1520
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-bone-1024.png",
+      "sha256": "c2ef8a41527978b0860a671748fa3fbd179ce5953fc09562b8e74c3cb8e7c6fb",
+      "size": 40024
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-bone-128.png",
+      "sha256": "6a77dc946bdefd98d9e6aac25a7983880046b52050117ee2d8fcfdbb2f0b71a1",
+      "size": 3477
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-bone-256.png",
+      "sha256": "948b842e5420f61ea02e780a5c26e430a15b46e3f654962f5b4425cff3d6040e",
+      "size": 7568
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-bone-512.png",
+      "sha256": "0b03bf80171455f0d62a394d7fd4306efe38a378f470695f03d5775adf91a840",
+      "size": 16652
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-clay-1024.png",
+      "sha256": "7e21fc07b8b22651e322c6e1d9fed845daeef6e2cab956e7cf9d9ca548f83d8e",
+      "size": 39781
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-clay-128.png",
+      "sha256": "caa2c4d3c2f53c2938d558a5cce9db003e9abae093cfe78431972d4d29f7573e",
+      "size": 3425
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-clay-256.png",
+      "sha256": "84816ff27d7846de95f8b295415bc8a835371ae17bf9dfd0dff8e8ee5ae0c22e",
+      "size": 7543
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-clay-512.png",
+      "sha256": "a193a7e89605a6daa0fef24fc424031ae74c5d75f06d75cd98a202ee7f2f17cb",
+      "size": 16712
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-ink-1024.png",
+      "sha256": "17a3b3b779ab311f11bc46b1d4e550ecb6c355439e635631aad74c067f895f4f",
+      "size": 39664
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-ink-128.png",
+      "sha256": "a0fc8b96f46f0ef3c83e9bfefb9a6d6580edfec08da3ba5381a5053bba16fbe6",
+      "size": 3460
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-ink-256.png",
+      "sha256": "0b148dc5b482acf076c8a01989b61ea08834fce2c1168109b6a3ae473eda1ff5",
+      "size": 7519
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-tile-ink-512.png",
+      "sha256": "4cd7fad2e80840e6a8f6b602f4ac6d2393a8e84877aecdcf8f2fb67ed24917d3",
+      "size": 16629
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-wordmark-1080w.png",
+      "sha256": "10b947c845cfd82c8f8504326124d4eaaab2844a9243f905be97827de258cb75",
+      "size": 29567
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-wordmark-540w.png",
+      "sha256": "f41f9ef6a89a3af22df87599fc1b7e2ec2ac360475953556a81f68c40f98da06",
+      "size": 13279
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-wordmark-dark-1080w.png",
+      "sha256": "8378a9edff79b8b520b92b373b32e7d934c31de9e2380d668071f1c91e4ca186",
+      "size": 24297
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-wordmark-dark-540w.png",
+      "sha256": "c517c472f9edf872216e9f0b60ed2f07cc567f8619dd8b3fb174f280e2626575",
+      "size": 10164
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-wordmark-dark.png",
+      "sha256": "8b6ff8b87ab3f24cbb57d6f8b43adecefe6cc0f97273a71e85d3e38d3e474daf",
+      "size": 41231
+    },
+    {
+      "media_type": "image/png",
+      "path": "png/mono-wordmark.png",
+      "sha256": "4338fab0f241a1abbbb37da2b5b41c61316d9df1605f4075d9608d58c273b55d",
+      "size": 26100
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/favicon.svg",
+      "sha256": "9fa8a7544d48e0479134b2ca5159e5a991766bda1ab0a38a5401ecf486255ce3",
+      "size": 383
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mc-lockup-horizontal-dark.svg",
+      "sha256": "f914da2db1a04be7f1d0ce36bfe30a49cd017a410a864d1af72af0c5052b42f4",
+      "size": 724
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mc-lockup-horizontal.svg",
+      "sha256": "f553201642c96bd619c292bcbedfbd543ae438901f44af1439d3e257b17453b5",
+      "size": 724
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mc-submark.svg",
+      "sha256": "03484cb49c738373a6be73b152d35a176da09b2a220238f87b767086f696310e",
+      "size": 283
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mc-tile-bone.svg",
+      "sha256": "bd269f553c606d45c2b731765bbd79e7a14b2ab6792189464d22ea4fd77b8ce7",
+      "size": 383
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mc-tile-ink.svg",
+      "sha256": "9fa8a7544d48e0479134b2ca5159e5a991766bda1ab0a38a5401ecf486255ce3",
+      "size": 383
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mc-tile-onecolor.svg",
+      "sha256": "3e58467199adc2cd169706780d04eb8a40fbeea4600ebd36f02b8cbccdced5b6",
+      "size": 383
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mc-wordmark.svg",
+      "sha256": "267fd6cf686c1945ad4109e2489d54ee967578359744c8d333faff2c9e9b26ce",
+      "size": 272
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mono-tile-bone.svg",
+      "sha256": "60794606b7aa5b40b2a29a54f25ee6cc416f0d953978c7ecff485a3c56a0d986",
+      "size": 387
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mono-tile-clay.svg",
+      "sha256": "857505f7f49f0b6c7d69d18c69248dac07a0a5138156496b8f892e6209144ed4",
+      "size": 387
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mono-tile-ink.svg",
+      "sha256": "ee195e4a701a3e09d247d533c54affacb6ede74d98a8266d66e9e1b2ffbd9599",
+      "size": 387
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mono-wordmark-light.svg",
+      "sha256": "7ca1c1ce4888abd82f859216abd49d2843edf15f47225b6d5c1db528df0ce62b",
+      "size": 306
+    },
+    {
+      "media_type": "image/svg+xml",
+      "path": "svg/mono-wordmark.svg",
+      "sha256": "515edee14b4836016668ce594ce82aa616794587b0201073288e0951c14146ed",
+      "size": 306
+    },
+    {
+      "media_type": "text/css",
+      "path": "web/fonts.css",
+      "sha256": "1afb209b65b318787f6879fbd6a3e58f788fe1a85c764d0608926448d30ecea7",
+      "size": 618
+    },
+    {
+      "media_type": "text/html",
+      "path": "web/head-snippet.html",
+      "sha256": "dbde123d0002e4fb44c138acc9e59ee66aa83d1e095b6068c0447539aa995d36",
+      "size": 1794
+    },
+    {
+      "media_type": "application/manifest+json",
+      "path": "web/site.webmanifest",
+      "sha256": "a3975cfcede865ac5310a46c5bb72a92157bb32818be38f51a901359d1c0529c",
+      "size": 429
+    },
+    {
+      "media_type": "text/css",
+      "path": "web/tokens.css",
+      "sha256": "5239fecdf24e098a835fb6af846507ad2964255bc33198a0d543a420c638313d",
+      "size": 1121
+    }
+  ],
+  "license_provenance": {
+    "licenses": [
+      "fonts/InstrumentSans-OFL.txt",
+      "fonts/JetBrainsMono-OFL.txt"
+    ],
+    "source_manifest": "fonts/SOURCES.json"
+  },
+  "schema_version": 1,
+  "version": "2026.08.23.1"
+}

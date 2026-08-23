@@ -7,7 +7,7 @@
 | Owner | Mindclade Security |
 | Version | 1.0 |
 | Last reviewed | August 21, 2026 |
-| Repository scope | Member profile and canonical brand assets |
+| Repository scope | Member profile and checked-in brand asset distribution |
 
 **Do not open an issue or pull request to report a vulnerability.** This repository is private,
 but its profile is rendered broadly to organization members and is not a coordinated-disclosure
