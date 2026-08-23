@@ -66,6 +66,7 @@ LOCAL_ASSET_RE = re.compile(
 )
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
+NIX_QUALIFICATION_CANDIDATE = "c386f4846a669ed841c54bc103d566c463fe4869"
 EXPECTED_FONT_FILES = {
     "InstrumentSans-Variable.ttf",
     "InstrumentSans-Variable.woff2",
@@ -350,6 +351,25 @@ def main() -> int:
                 errors.append(
                     f"external action is not SHA-pinned in {relative(workflow_path)}: {use}"
                 )
+
+    nix_qualification_path = workflow_dir / "nix-qualification.yml"
+    if nix_qualification_path.is_file():
+        nix_qualification = nix_qualification_path.read_text(encoding="utf-8")
+        expected_use = (
+            "mindclade/.github/.github/workflows/reusable-nix-qualification.yml@"
+            f"{NIX_QUALIFICATION_CANDIDATE}"
+        )
+        if USES_RE.findall(nix_qualification) != [expected_use]:
+            errors.append(
+                "nix qualification must use the audited immutable shared-workflow candidate"
+            )
+        if not re.search(
+            r"(?m)^\s+ci-command:\s*make validate && make lint\s*$",
+            nix_qualification,
+        ):
+            errors.append(
+                "nix qualification must run the complete repository validation and lint gates"
+            )
 
     if errors:
         for message in sorted(set(errors)):

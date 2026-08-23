@@ -15,7 +15,7 @@ not reconstructed or relabeled here.
 
 ### Changed
 
-- Synchronized policy bundle `2026.08.21.3`, pinned repository-home validation to canonical
+- Synchronized policy bundle `2026.08.22.1`, pinned repository-home validation to canonical
   commit `8467615f12868d4b78718b8ddf7f05797c44a507`, and removed the obsolete duplicate validator.
 - Updated the proprietary license with the protected-disclosure notice and
   recorded the Contributor Covenant 2.1 attribution and modifications.
