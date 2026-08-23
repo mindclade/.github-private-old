@@ -32,6 +32,7 @@ required_paths:
   - .github/PULL_REQUEST_TEMPLATE.md
   - profile/README.md
   - mindclade-brand-assets/README.txt
+  - mindclade-brand-assets/MANIFEST.json
   - mindclade-brand-assets/png/mono-wordmark-1080w.png
   - mindclade-brand-assets/png/mono-wordmark-dark-1080w.png
   - mindclade-brand-assets/png/mc-lockup-horizontal-1080w.png

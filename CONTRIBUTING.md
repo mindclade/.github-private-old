@@ -9,9 +9,11 @@ Keep changes concise, operationally useful, and safe for every organization memb
 
 1. Create a branch from `main`.
 2. Update `profile/README.md` and any repository documentation needed to explain the change.
-3. Run `nix flake check --no-update-lock-file` using the committed toolchain lock.
-4. Open a pull request using the repository template.
-5. Obtain the required approvals, including code-owner review, before merge.
+3. If assets changed, refresh `mindclade-brand-assets/MANIFEST.json` with
+   `python3 scripts/brand_bundle.py refresh --version YYYY.MM.DD.N --write`.
+4. Run `nix flake check --no-update-lock-file` using the committed toolchain lock.
+5. Open a pull request using the repository template.
+6. Obtain the required approvals, including code-owner review, before merge.
 
 Do not use this repository for GitHub settings, reusable workflow implementations, secrets,
 incident timelines, customer data, private model material, restricted biological content, or

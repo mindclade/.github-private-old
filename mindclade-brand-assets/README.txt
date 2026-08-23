@@ -166,6 +166,8 @@ live text rather than outlines. Two consequences:
    Illustrator and convert the text to outlines
    (Type > Create Outlines). Then it is safe anywhere.
 
-The PNGs are already flat and correct as-is. Treat
-mc-tile-ink-1024.png and mc-lockup-horizontal.png as the
-authoritative masters until you have an outlined vector.
+The PNGs are already flat and correct as-is. This directory is
+a checked-in distribution, not the corporate brand-governance
+authority. Within this distribution, use mc-tile-ink-1024.png
+and mc-lockup-horizontal.png as the highest-resolution masters
+until an approved outlined vector is distributed.

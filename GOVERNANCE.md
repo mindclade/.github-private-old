@@ -7,7 +7,7 @@
 | Owner | Mindclade Platform |
 | Version | 1.0 |
 | Last reviewed | August 21, 2026 |
-| Authority | Member-only organization profile and canonical brand source |
+| Authority | Member-only organization profile and checked-in brand distribution |
 
 ## Authority boundary
 
@@ -43,4 +43,3 @@ Code ownership, member links, brand provenance, font licenses, and rendering
 are reviewed at least quarterly and whenever the source manifest changes.
 Organization-wide governance is defined in
 [`mindclade/.github/GOVERNANCE.md`](https://github.com/mindclade/.github/blob/main/GOVERNANCE.md).
-

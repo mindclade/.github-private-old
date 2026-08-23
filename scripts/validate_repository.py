@@ -30,6 +30,7 @@ REQUIRED_FILES = {
     "SUPPORT.md",
     "contracts/repository.yaml",
     "mindclade-brand-assets/README.txt",
+    "mindclade-brand-assets/MANIFEST.json",
     "mindclade-brand-assets/fonts/InstrumentSans-Variable.ttf",
     "mindclade-brand-assets/fonts/InstrumentSans-Variable.woff2",
     "mindclade-brand-assets/fonts/InstrumentSans-OFL.txt",
@@ -48,6 +49,8 @@ REQUIRED_FILES = {
     "mindclade-brand-assets/web/site.webmanifest",
     "mindclade-brand-assets/web/tokens.css",
     "profile/README.md",
+    "scripts/brand_bundle.py",
+    "tests/test_brand_bundle.py",
 }
 FORBIDDEN_PARTS = {
     ".terraform",

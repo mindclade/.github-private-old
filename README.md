@@ -1,5 +1,5 @@
 <!-- mindclade-doc: repository-home@2 -->
-<!-- Brand source: mindclade/.github-private/mindclade-brand-assets (MONO family). -->
+<!-- Brand distribution: mindclade/.github-private/mindclade-brand-assets (MONO family). -->
 
 <p align="center">
   <picture>
@@ -19,8 +19,8 @@
 # Mindclade · Member Profile and Brand
 
 > **Member experience · Private organization surface**
-> Render Mindclade's member-only organization profile and preserve the canonical, self-hosted
-> brand assets used across internal engineering surfaces.
+> Render Mindclade's member-only organization profile and preserve the checked-in, self-hosted
+> brand asset distribution used across internal engineering surfaces.
 
 | Repository contract | Value |
 | --- | --- |
@@ -35,7 +35,7 @@
 ## Mission
 
 `.github-private` is GitHub's special private organization-profile repository. It gives members
-a trusted navigation surface and stores Mindclade's canonical brand bundle. The repository name,
+a trusted navigation surface and stores Mindclade's checked-in brand distribution. The repository name,
 visibility, and `profile/README.md` path are part of GitHub's rendering contract.
 
 ## Authority boundary
@@ -43,7 +43,7 @@ visibility, and `profile/README.md` path are part of GitHub's rendering contract
 ### This repository creates
 
 - The member-only organization profile and internal links to authoritative systems and support.
-- The checked-in source bundle for approved CAPS and MONO images, fonts, web assets, and usage
+- The checked-in distribution of approved CAPS and MONO images, fonts, web assets, and usage
   guidance.
 - Offline validation that keeps the profile renderable and the asset provenance intact.
 
@@ -76,7 +76,7 @@ settings remain governed by `github-config`.
 ## Estate position
 
 The highlighted node is this repository. The contract and boundary lists are the text equivalent
-of its navigation and brand-source relationship to the engineering estate.
+of its navigation and brand-distribution relationship to the engineering estate.
 
 ```mermaid
 %% current: .github-private %%
@@ -102,7 +102,8 @@ flowchart LR
 | Path | Purpose |
 | --- | --- |
 | `profile/README.md` | GitHub-rendered member organization profile. |
-| `mindclade-brand-assets/` | Canonical images, fonts, tokens, web handoff, and brand guide. |
+| `mindclade-brand-assets/` | Checked-in images, fonts, tokens, web handoff, manifest, and brand guide. |
+| `scripts/brand_bundle.py` | Deterministic asset-manifest verification and archive builder. |
 | `contracts/repository.yaml` | Repository authority and required paths. |
 | `scripts/validate_repository.py` | Offline profile, asset, and safety validation. |
 | `.github/` | CODEOWNERS, pull-request template, and validation workflow. |
@@ -112,7 +113,8 @@ flowchart LR
 Change profile copy or brand assets through a reviewed pull request. Preserve upstream font
 licenses and source hashes, render the profile from local assets, and verify every link before
 merge. `github-config` remains the authority for repository visibility, access, and settings;
-publishing or pushing is an explicit operator action.
+publishing or pushing is an explicit operator action. This repository distributes reviewed assets;
+it does not establish corporate brand-governance authority.
 
 ## Documentation and support
 
