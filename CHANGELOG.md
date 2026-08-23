@@ -20,7 +20,7 @@ not reconstructed or relabeled here.
 - Defined `.github-private` consistently as the checked-in brand distribution rather than the
   corporate brand-governance authority.
 - Synchronized policy bundle `2026.08.23.1`, pinned repository-home validation to canonical
-  commit `8467615f12868d4b78718b8ddf7f05797c44a507`, and removed the obsolete duplicate validator.
+  commit `f6d4bf43a1c4a69345556a224cfd13c3ab53188e`, and removed the obsolete duplicate validator.
 - Updated the proprietary license with the protected-disclosure notice and
   recorded the Contributor Covenant 2.1 attribution and modifications.
 
