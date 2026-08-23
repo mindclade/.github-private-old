@@ -37,7 +37,7 @@
             cp -R "$src" source
             chmod -R u+w source
             cd source
-            make validate-core
+            make validate
             make lint
             touch "$out"
           '';
